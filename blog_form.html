@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Blog Form</title>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>{{ form.instance.pk|yesno:"Edit,Create" }} Blog</h1>
+        </header>
+        <form method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button type="submit">Save</button>
+        </form>
+        <a href="{% url 'blog_list' %}">Back to Blog List</a>
+    </div>
+</body>
+</html>
